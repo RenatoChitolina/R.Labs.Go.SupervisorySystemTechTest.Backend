@@ -3,19 +3,17 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
-)
+	"server/models"
 
-type Sensor struct {
-	Id          string `json:"id"`
-	Temperature int8   `json:"temperature"`
-}
+	"github.com/gorilla/mux"
+)
 
 func main() {
 	router := mux.NewRouter()
+
 	router.HandleFunc("/temperature/{id}", GetSensorTemperature).Methods("GET", "OPTIONS")
 
 	fmt.Println("Starting server on the port 8081...")
@@ -38,7 +36,9 @@ func GetSensorTemperature(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	var sensor Sensor
+
+	var sensor models.Sensor
+
 	if err := json.Unmarshal(body, &sensor); err != nil {
 		panic(err)
 	}
