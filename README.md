@@ -12,6 +12,10 @@ This project uses
 
 - `go test` - Run unit tests on terminal
 
+### Note
+
+- About the main card topic "Improve test coverage", I would honestly say that I refactored more than I increased test coverage, but that was because in my opinion, more important than increasing the coverage of useless code was isolating valuable business code and then cover tests on it.
+
 ### Things to be done
 
 - We are assuming that the setup is correct, but if the setup was incorrect (eg.: min 4º and max 3º) probably the application would need to have more validations and should break or alert in some way (Either the setup itself would need to be made by an interface with some control and validations).
