@@ -15,7 +15,7 @@ func TestSensorStatusAllGood(t *testing.T) {
 
 	sensor.CheckStatus()
 
-	assert.Equal(t, TemperatureStatuses.AllGood, string(sensor.Status))
+	assert.Equal(t, TemperatureStatus(TemperatureStatuses.AllGood), sensor.Status)
 }
 
 func TestSensorStatusTooLow(t *testing.T) {
@@ -27,7 +27,7 @@ func TestSensorStatusTooLow(t *testing.T) {
 
 	sensor.CheckStatus()
 
-	assert.Equal(t, TemperatureStatuses.TooLow, string(sensor.Status))
+	assert.Equal(t, TemperatureStatus(TemperatureStatuses.TooLow), sensor.Status)
 }
 
 func TestSensorStatusTooHigh(t *testing.T) {
@@ -39,5 +39,5 @@ func TestSensorStatusTooHigh(t *testing.T) {
 
 	sensor.CheckStatus()
 
-	assert.Equal(t, TemperatureStatuses.TooHigh, string(sensor.Status))
+	assert.Equal(t, TemperatureStatus(TemperatureStatuses.TooHigh), sensor.Status)
 }
