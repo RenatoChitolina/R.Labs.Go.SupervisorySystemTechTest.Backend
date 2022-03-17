@@ -39,6 +39,12 @@ func SensorSetups() map[string]models.Sensor {
 			Name:               "Pale Ale",
 			MinimumTemperature: 4,
 			MaximumTemperature: 6,
+		},
+		"NonNumericKey": {
+			Id:                 "NonNumericKey",
+			Name:               "Export",
+			MinimumTemperature: 2,
+			MaximumTemperature: 2,
 		}}
 
 	return data
