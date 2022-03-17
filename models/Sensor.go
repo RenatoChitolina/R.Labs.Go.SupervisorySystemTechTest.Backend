@@ -1,12 +1,12 @@
 package models
 
 type Sensor struct {
-	Id                 string
-	Name               string
-	MinimumTemperature int8
-	MaximumTemperature int8
-	Temperature        int8 `json:"temperature"`
-	Status             TemperatureStatus
+	Id                 string            `json:"id"`
+	Name               string            `json:"name"`
+	MinimumTemperature int8              `json:"minimumTemperature"`
+	MaximumTemperature int8              `json:"maximumTemperature"`
+	Temperature        int8              `json:"temperature"`
+	Status             TemperatureStatus `json:"status"`
 }
 
 func (sensor *Sensor) CheckStatus() {
