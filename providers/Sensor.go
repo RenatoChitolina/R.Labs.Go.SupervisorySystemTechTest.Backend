@@ -8,10 +8,10 @@ import (
 	"server/models"
 )
 
-const providerAddress = "https://temperature-sensor-service.herokuapp.com/sensor/"
+const providerBaseAddress = "https://temperature-sensor-service.herokuapp.com"
 
 func GetSensorTemperature(sensor models.Sensor) int8 {
-	response, err := http.Get(providerAddress + sensor.Id)
+	response, err := http.Get(providerBaseAddress + "/sensor/" + sensor.Id)
 	if err != nil {
 		panic(err)
 	}
