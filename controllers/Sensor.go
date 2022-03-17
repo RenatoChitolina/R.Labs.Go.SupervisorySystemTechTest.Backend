@@ -9,6 +9,21 @@ import (
 	"github.com/gorilla/mux"
 )
 
+func GetAvailableSensors(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Context-Type", "application/json")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	data := data.SensorSetups()
+
+	keys := make([]string, 0, len(data))
+
+	for key := range data {
+		keys = append(keys, key)
+	}
+
+	json.NewEncoder(w).Encode(keys)
+}
+
 func GetSensorTemperature(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
